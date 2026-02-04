@@ -1,0 +1,17 @@
+{
+  "include": ["src/**/*"],
+  "exclude": ["dist", "build", "node_modules", "assets"],
+  "compilerOptions": {
+    "lib": ["esnext", "dom"],
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true
+  }
+}

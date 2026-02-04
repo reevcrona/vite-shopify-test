@@ -1,0 +1,18 @@
+{
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "concurrently": "^9.2.1",
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.3.1",
+    "vite-plugin-shopify": "^4.1.1"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm:shopify:dev\" \"npm:vite:dev\" --names \"shopify,vite\" --prefix-colors \"blue,green\"",
+    "deploy": "run-s \"vite:build\" \"shopify:push -- {@}\" --",
+    "shopify:dev": "shopify theme dev -e development",
+    "shopify:push": "shopify theme push",
+    "vite:dev": "vite",
+    "vite:build": "vite build"
+  }
+}
