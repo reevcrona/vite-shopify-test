@@ -7,5 +7,23 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
-node_modules
+
+
+# Dependencies
+node_modules/
+
+
+
+# Shopify CLI (local config, not shared)
 shopify.theme.toml
+
+
+# Built assets
+assets/
+assets/vite-manifest.json
+snippets/vite.liquid
+
+# Environment variables
+.env
+.env.*
+!.env.example

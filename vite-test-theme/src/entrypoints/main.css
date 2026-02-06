@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./css/critical.css";
 
 body {
   background-color: blueviolet !important;

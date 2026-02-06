@@ -1,1 +1,6 @@
 assets/.vite/*
+package.json
+package-lock.json
+vite.config.js
+README.md
+tsconfig.json

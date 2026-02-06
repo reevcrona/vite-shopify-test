@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "@driver-digital/vite-plugin-shopify-clean": "^1.1.1",
     "@tailwindcss/vite": "^4.1.18",
     "concurrently": "^9.2.1",
     "tailwindcss": "^4.1.18",
@@ -11,7 +12,7 @@
     "dev": "concurrently \"npm:shopify:dev\" \"npm:vite:dev\" --names \"shopify,vite\" --prefix-colors \"blue,green\"",
     "deploy": "run-s \"vite:build\" \"shopify:push -- {@}\" --",
     "shopify:dev": "shopify theme dev -e development",
-    "shopify:push": "shopify theme push",
+    "shopify:push": "shopify theme push -e development",
     "vite:dev": "vite",
     "vite:build": "vite build"
   }
