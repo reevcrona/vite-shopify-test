@@ -2,16 +2,21 @@
   "devDependencies": {
     "@driver-digital/vite-plugin-shopify-clean": "^1.1.1",
     "@tailwindcss/vite": "^4.1.18",
+    "@vitejs/plugin-basic-ssl": "^2.1.4",
+    "chokidar": "^5.0.0",
     "concurrently": "^9.2.1",
+    "rimraf": "^6.1.2",
     "tailwindcss": "^4.1.18",
     "vite": "^7.3.1",
+    "vite-plugin-page-reload": "^0.2.2",
     "vite-plugin-shopify": "^4.1.1"
   },
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm:shopify:dev\" \"npm:vite:dev\" --names \"shopify,vite\" --prefix-colors \"blue,green\"",
+    "clean": "rimraf assets",
+    "dev": "rimraf assets && concurrently \"npm:shopify:dev\" \"npm:vite:dev\" --names \"shopify,vite\" --prefix-colors \"blue,green\"",
     "deploy": "run-s \"vite:build\" \"shopify:push -- {@}\" --",
-    "shopify:dev": "shopify theme dev -e development",
+    "shopify:dev": "shopify theme dev --poll --live-reload=\"hot-reload\" --notify=/tmp/theme.update -e development",
     "shopify:push": "shopify theme push -e development",
     "vite:dev": "vite",
     "vite:build": "vite build"
