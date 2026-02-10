@@ -62,6 +62,20 @@ function copyPublicToAssetsPlugin(): Plugin {
 }
 
 export default defineConfig({
+  publicDir: "public",
+
+  build: {
+    manifest: false,
+    emptyOutDir: false,
+    rollupOptions: {
+      output: {
+        entryFileNames: "[name].[hash].min.js",
+        chunkFileNames: "[name].[hash].min.js",
+        assetFileNames: "[name].[hash].min[extname]",
+      },
+    },
+  },
+
   plugins: [
     shopify({
       sourceCodeDir: "src",
@@ -74,9 +88,4 @@ export default defineConfig({
       delay: 2000,
     }),
   ],
-
-  publicDir: "public",
-  build: {
-    emptyOutDir: false,
-  },
 });
