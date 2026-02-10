@@ -13,6 +13,11 @@ concurrency:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: vite-test-theme
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -22,6 +27,8 @@ jobs:
         with:
           node-version: 20
           cache: "npm"
+
+          cache-dependency-path: vite-test-theme/package-lock.json
 
       - name: Install dependencies
         run: |
