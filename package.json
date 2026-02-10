@@ -15,7 +15,7 @@
   "scripts": {
     "clean": "rimraf assets",
     "dev": "rimraf assets && concurrently \"npm:shopify:dev\" \"npm:vite:dev\" --names \"shopify,vite\" --prefix-colors \"blue,green\"",
-    "deploy": "npm run build && shopify theme push --store=$SHOPIFY_STORE --theme=$SHOPIFY_THEME_ID --unattended --allow-live",
+    "deploy": "npm run vite:build && shopify theme push --store=$SHOPIFY_STORE --theme=$SHOPIFY_THEME_ID --unattended --allow-live",
     "shopify:dev": "shopify theme dev --poll --live-reload=\"hot-reload\" --notify=/tmp/theme.update -e development",
     "shopify:push": "shopify theme push -e development",
     "vite:dev": "vite",
