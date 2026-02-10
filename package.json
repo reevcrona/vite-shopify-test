@@ -18,6 +18,7 @@
     "deploy": "npm run vite:build && shopify theme push --store=$SHOPIFY_STORE --theme=$SHOPIFY_THEME_ID --allow-live",
     "shopify:dev": "shopify theme dev --poll --live-reload=\"hot-reload\" --notify=/tmp/theme.update -e development",
     "shopify:push": "shopify theme push -e development",
+    "shopify:pull": "shopify theme pull -e development",
     "vite:dev": "vite",
     "vite:build": "vite build"
   }
