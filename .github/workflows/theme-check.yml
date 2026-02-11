@@ -34,7 +34,7 @@ jobs:
         run: npm ci
 
       - name: Build Assets
-        run: npm run build
+        run: npm run vite:build
 
       - name: Theme Check
         uses: shopify/theme-check-action@v2
