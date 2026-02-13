@@ -9,17 +9,13 @@ on:
 
 permissions:
   contents: read
-  pull-requests: read
+  pull-requests: write
+  checks: write
 
 jobs:
   theme-check:
     name: Shopify Theme Check
     runs-on: ubuntu-latest
-
-permissions:
-    contents: read
-    pull-requests: write 
-    checks: write        
 
     # Don't run on draft PRs (until it's "Ready for review")
     if: ${{ github.event.pull_request.draft == false }}
@@ -28,9 +24,22 @@ permissions:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Assets
+        run: npm run vite:build
+
       - name: Theme Check
         uses: shopify/theme-check-action@v2
         with:
+          # This now scans the theme with the fresh assets/ folder
           theme_root: "."
           token: ${{ github.token }}
           base: main
