@@ -19,7 +19,7 @@ jobs:
         run: npm ci
 
       - name: Build Vite Assets
-        run: npm run "vite:build
+        run: npm run vite:build
 
       - name: Run Lighthouse CI
         uses: shopify/lighthouse-ci-action@v1
